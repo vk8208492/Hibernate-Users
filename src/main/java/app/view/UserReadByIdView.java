@@ -3,7 +3,7 @@ package app.view;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-public class UserReadByIdViews {
+public class UserReadByIdView {
 
     public Map<String, String> getData() {
         Scanner scanner = new Scanner(System.in);

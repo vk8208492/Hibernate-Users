@@ -3,7 +3,7 @@ package app.view;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-public class UserCreateViews {
+public class UserCreateView {
 
     public Map<String, String> getData() {
         Scanner scanner = new Scanner(System.in);
