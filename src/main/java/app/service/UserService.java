@@ -5,19 +5,19 @@ import app.exception.UserExceptions;
 import app.repository.impl.UserRepositorys;
 import app.utils.Constant;
 import app.entity.UserMappers;
-import app.utils.UserValidators;
+import app.utils.UserValidatorss;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
-public class UserServices {
+public class UserService {
 
     UserRepositorys repository = new UserRepositorys();
 
     public String createUser(Map<String, String> data) {
         Map<String, String> errors =
-                new UserValidators().validateUserData(data);
+                new UserValidatorss().validateUserData(data);
         if (!errors.isEmpty()) {
             try {
                 throw new UserExceptions("Check inputs", errors);
@@ -52,7 +52,7 @@ public class UserServices {
 
     public String updateUser(Map<String, String> data) {
         Map<String, String> errors =
-                new UserValidators().validateUserData(data);
+                new UserValidatorss().validateUserData(data);
         if (!errors.isEmpty()) {
             try {
                 throw new UserExceptions("Check inputs", errors);
@@ -65,7 +65,7 @@ public class UserServices {
 
     public String deleteContact(Map<String, String> data) {
         Map<String, String> errors =
-                new UserValidators().validateUserData(data);
+                new UserValidatorss().validateUserData(data);
         if (!errors.isEmpty()) {
             try {
                 throw new UserExceptions("Check inputs", errors);
@@ -78,7 +78,7 @@ public class UserServices {
 
     public String readContactById(Map<String, String> data) {
         Map<String, String> errors =
-                new UserValidators().validateUserData(data);
+                new UserValidatorss().validateUserData(data);
         if (!errors.isEmpty()) {
             try {
                 throw new UserExceptions("Check inputs", errors);

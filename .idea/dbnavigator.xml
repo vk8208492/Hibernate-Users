@@ -550,17 +550,7 @@
     </general-settings>
   </component>
   <component name="DBNavigator.Project.StatementExecutionManager">
-    <execution-variables>
-      <file file-url="file://$PROJECT_DIR$/info/SQL.sql">
-        <variable name="phone" data-type="LITERAL" />
-        <variable name="email" data-type="LITERAL">
-          <value>null</value>
-          <value>10</value>
-        </variable>
-        <variable name="id" data-type="LITERAL" />
-        <variable name="name" data-type="LITERAL" />
-      </file>
-    </execution-variables>
+    <execution-variables />
     <execution-variable-types>
       <variable connection-id="28165308-cbb3-4ea4-a27a-01fcd89340b8" name="firstname" data-type="LITERAL" />
       <variable connection-id="28165308-cbb3-4ea4-a27a-01fcd89340b8" name="phone" data-type="LITERAL" />

@@ -6,7 +6,7 @@ import app.utils.AppStarters;
 import app.utils.Constant;
 import app.view.AppViews;
 
-public class AppServices {
+public class AppService {
 
     UserControllers controller = new UserControllers();
 
