@@ -1,13 +1,13 @@
-package app.views;
+package app.view;
 
 
-import app.utils.AppStarters;
-import app.utils.Constant;
+import app.utils.AppStarter;
+import app.utils.Constants;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class AppViews {
+public class AppView {
 
     Scanner scanner;
     int option;
@@ -18,8 +18,8 @@ public class AppViews {
         try {
             option = scanner.nextInt();
         } catch (InputMismatchException ime) {
-            System.out.println(Constant.INCORRECT_OPTION_MSG);
-            AppStarters.startApp();
+            System.out.println(Constants.INCORRECT_OPTION_MSG);
+            AppStarter.startApp();
         }
         return option;
     }
@@ -40,7 +40,7 @@ public class AppViews {
 
     public void getOutput(String output) {
         if (output.equals("0")) {
-            System.out.println(Constant.APP_CLOSE_MSG);
+            System.out.println(Constants.APP_CLOSE_MSG);
             System.exit(0);
         } else System.out.println(output);
     }

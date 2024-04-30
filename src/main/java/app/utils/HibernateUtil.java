@@ -1,7 +1,7 @@
 package app.utils;
 
-import app.entity.Users;
-import app.views.AppViews;
+import app.entity.User;
+import app.view.AppView;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -13,7 +13,7 @@ import java.util.Properties;
 
 
 
-public class HibernateUtils {
+public class HibernateUtil {
 
     private static SessionFactory sessionFactory;
 
@@ -21,14 +21,14 @@ public class HibernateUtils {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = getConfiguration();
-                configuration.addAnnotatedClass(Users.class);
+                configuration.addAnnotatedClass(User.class);
                 ServiceRegistry serviceRegistry =
                         new StandardServiceRegistryBuilder()
                                 .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration
                         .buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
-                new AppViews().getOutput(e.getMessage());
+                new AppView().getOutput(e.getMessage());
             }
         }
         return sessionFactory;
@@ -39,10 +39,10 @@ public class HibernateUtils {
         Properties props = new Properties();
 
         try {
-            props.load(HibernateUtils.class.getResourceAsStream("/db/jdbc.properties"));
+            props.load(HibernateUtil.class.getResourceAsStream("/db/jdbc.properties"));
         } catch (IOException e) {
 
-            new AppViews().getOutput(e.getMessage());
+            new AppView().getOutput(e.getMessage());
         }
         props.put(Environment.JAKARTA_JDBC_DRIVER, props.getProperty("dbDriver"));
         props.put(Environment.JAKARTA_JDBC_URL, props.getProperty("dbUrl"));

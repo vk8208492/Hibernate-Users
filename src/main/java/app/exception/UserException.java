@@ -1,12 +1,12 @@
-package app.exceptions;
+package app.exception;
 
 import java.util.HashMap;
 import java.util.Map;
-public class UserExceptions extends RuntimeException{
+public class UserException extends RuntimeException{
 
     Map<String, String> errors;
 
-    public UserExceptions(String message, Map<String, String> errors) {
+    public UserException(String message, Map<String, String> errors) {
         super(message);
         this.errors = errors;
     }

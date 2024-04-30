@@ -1,6 +1,6 @@
-package app.views;
+package app.view;
 
-public class UserReadViews {
+public class UserReadView {
 
     public void getOutput(String output) {
         System.out.println(output);
