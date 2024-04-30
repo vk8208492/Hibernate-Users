@@ -2,7 +2,7 @@ package app.utils;
 
 import java.util.HashMap;
 import java.util.Map;
-public class UserValidators {
+public class UserValidatorss {
 
     public Map<String, String> validateUserData(Map<String, String> data) {
 

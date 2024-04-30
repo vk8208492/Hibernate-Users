@@ -39,7 +39,7 @@ public class HibernateUtils {
         Properties props = new Properties();
 
         try {
-            props.load(HibernateUtils.class.getResourceAsStream("/db/jdbc.properties"));
+            props.load(HibernateUtils.class.getResourceAsStream("/db/jdbc.propertiess"));
         } catch (IOException e) {
 
             new AppViews().getOutput(e.getMessage());
