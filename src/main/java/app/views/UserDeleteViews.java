@@ -1,9 +1,9 @@
-package app.view;
+package app.views;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-public class UserDeleteView {
+public class UserDeleteViews {
 
     public Map<String, String> getData() {
         Scanner scanner = new Scanner(System.in);

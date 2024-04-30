@@ -38,6 +38,7 @@
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$PROJECT_DIR$/../../../Архивы/Hibernate/Hibernate/Hibernate-HQL-MySQL-Contacts/INFO/SQLs.sql" connection-id="virtual-mysql-connection" session-id="MAIN" current-schema="" />
+    <mapping file-url="file://$PROJECT_DIR$/info/SQL.sql" connection-id="7a3387e8-3d86-403c-becf-88ac68fbcb23" session-id="MAIN" current-schema="hibernate" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -60,7 +61,7 @@
     <connections>
       <connection id="7a3387e8-3d86-403c-becf-88ac68fbcb23" active="true" signed="true">
         <database>
-          <name value="Hidermate" />
+          <name value="Hidermate1" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -69,7 +70,7 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="localhost" />
+          <host value="127.0.0.1" />
           <port value="3306" />
           <database value="hidermate" />
           <tns-folder value="" />
@@ -550,37 +551,14 @@
   </component>
   <component name="DBNavigator.Project.StatementExecutionManager">
     <execution-variables>
-      <file file-url="db://28165308-cbb3-4ea4-a27a-01fcd89340b8/consoles/Connection 1">
-        <variable name="firstname" data-type="LITERAL" />
-        <variable name="first_name" data-type="LITERAL" />
-        <variable name="last_name" data-type="LITERAL" />
-        <variable name="lastname" data-type="LITERAL" />
-        <variable name="id" data-type="LITERAL">
-          <value>1</value>
-        </variable>
-        <variable name="phone" data-type="LITERAL" />
-        <variable name="name" data-type="LITERAL">
-          <value>128</value>
-        </variable>
-        <variable name="email" data-type="LITERAL">
-          <value>128</value>
-        </variable>
-      </file>
       <file file-url="file://$PROJECT_DIR$/info/SQL.sql">
-        <variable name="id" data-type="LITERAL" />
         <variable name="phone" data-type="LITERAL" />
-        <variable name="name" data-type="LITERAL" />
+        <variable name="id" data-type="LITERAL" />
         <variable name="email" data-type="LITERAL">
           <value>null</value>
           <value>10</value>
         </variable>
-      </file>
-      <file file-url="db://28165308-cbb3-4ea4-a27a-01fcd89340b8/consoles/Connection 1.1">
-        <variable name="lastname" data-type="LITERAL" />
         <variable name="name" data-type="LITERAL" />
-        <variable name="firstname" data-type="LITERAL" />
-        <variable name="email" data-type="LITERAL" />
-        <variable name="phone" data-type="LITERAL" />
       </file>
     </execution-variables>
     <execution-variable-types>

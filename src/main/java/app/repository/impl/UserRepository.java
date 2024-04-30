@@ -1,9 +1,9 @@
 package app.repository.impl;
 
-import app.entity.User;
+import app.entity.Users;
 import app.repository.AppRepository;
-import app.utils.Constants;
-import app.utils.HibernateUtil;
+import app.utils.Constant;
+import app.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.MutationQuery;
@@ -11,12 +11,12 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.Optional;
-public class UserRepository implements AppRepository {
+public class UserRepository implements AppRepository<Users> {
 
     @Override
-    public String create(User user) {
+    public String create(Users users) {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
 
@@ -26,15 +26,15 @@ public class UserRepository implements AppRepository {
 
             MutationQuery query = session.createMutationQuery(hql);
 
-            query.setParameter("name", user.getName());
-            query.setParameter("email", user.getEmail());
+            query.setParameter("name", users.getName());
+            query.setParameter("email", users.getEmail());
 
             query.executeUpdate();
 
             transaction.commit();
 
 
-            return Constants.DATA_INSERT_MSG;
+            return Constant.DATA_INSERT_MSG;
         } catch (Exception e) {
             if (transaction != null) {
                 // Відкочення поточної транзакції ресурсу
@@ -46,14 +46,14 @@ public class UserRepository implements AppRepository {
     }
 
     @Override
-    public Optional<List<User>> read() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+    public Optional<List<Users>> read() {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
             Transaction transaction;
 
             transaction = session.beginTransaction();
 
-            List<User> list =
-                    session.createQuery("FROM User", User.class)
+            List<Users> list =
+                    session.createQuery("FROM User", Users.class)
                             .list();
 
             transaction.commit();
@@ -66,13 +66,13 @@ public class UserRepository implements AppRepository {
     }
 
     @Override
-    public String update(User user) {
+    public String update(Users users) {
 
-        if (readById(user.getId()).isEmpty()) {
-            return Constants.DATA_ABSENT_MSG;
+        if (readById(users.getId()).isEmpty()) {
+            return Constant.DATA_ABSENT_MSG;
         } else {
             Transaction transaction = null;
-            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 
                 transaction = session.beginTransaction();
 
@@ -80,15 +80,15 @@ public class UserRepository implements AppRepository {
 
                 MutationQuery query = session.createMutationQuery(hql);
 
-                query.setParameter("name", user.getName());
-                query.setParameter("email", user.getEmail());
-                query.setParameter("id", user.getId());
+                query.setParameter("name", users.getName());
+                query.setParameter("email", users.getEmail());
+                query.setParameter("id", users.getId());
 
                 query.executeUpdate();
 
                 transaction.commit();
 
-                return Constants.DATA_UPDATE_MSG;
+                return Constant.DATA_UPDATE_MSG;
             } catch (Exception e) {
                 if (transaction != null) {
 
@@ -104,10 +104,10 @@ public class UserRepository implements AppRepository {
     public String delete(Long id) {
 
         if (readById(id).isEmpty()) {
-            return Constants.DATA_ABSENT_MSG;
+            return Constant.DATA_ABSENT_MSG;
         } else {
             Transaction transaction = null;
-            try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 
                 transaction = session.beginTransaction();
 
@@ -121,7 +121,7 @@ public class UserRepository implements AppRepository {
 
                 transaction.commit();
 
-                return Constants.DATA_DELETE_MSG;
+                return Constant.DATA_DELETE_MSG;
             } catch (Exception e) {
                 if (transaction != null) {
 
@@ -134,16 +134,16 @@ public class UserRepository implements AppRepository {
     }
 
     @Override
-    public Optional<User> readById(Long id) {
+    public Optional<Users> readById(Long id) {
         Transaction transaction = null;
-        Optional<User> optional;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        Optional<Users> optional;
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
 
             String hql = " FROM User c WHERE c.id = :id";
 
-            Query<User> query = session.createQuery(hql, User.class);
+            Query<Users> query = session.createQuery(hql, Users.class);
             query.setParameter("id", id);
 
             optional = query.uniqueResultOptional();
@@ -162,16 +162,16 @@ public class UserRepository implements AppRepository {
     }
 
 
-    private boolean isEntityWithSuchIdExists(User user) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+    private boolean isEntityWithSuchIdExists(Users users) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 
-            user = session.get(User.class, user.getId());
-            if (user != null) {
-                Query<User> query = session.createQuery("FROM User", User.class);
+            users = session.get(Users.class, users.getId());
+            if ( users != null) {
+                Query<Users> query = session.createQuery("FROM User", Users.class);
                 query.setMaxResults(1);
                 query.getResultList();
             }
-            return user != null;
+            return users != null;
         }
     }
 }

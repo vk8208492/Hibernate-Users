@@ -1,11 +1,9 @@
 package app.repository;
 
-import app.entity.User;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface AppRepository {
+public interface AppRepository<User> {
 
 
     String create(User user);

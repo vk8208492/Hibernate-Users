@@ -1,6 +1,6 @@
 package app.utils;
 
-public final class Constants {
+public final class Constant {
 
     public final static String WRONG_NAME_MSG = "Wrong name input.";
     public final static String WRONG_EMAIL_MSG = "Wrong email input.";
